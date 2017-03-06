@@ -5,6 +5,9 @@
  */
 package practica2;
 
+import Form.MenuPrincipal;
+import javax.swing.UIManager;
+
 /**
  *
  * @author Christian
@@ -16,7 +19,8 @@ public class Practica2 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        System.out.println("practica2");
+        MenuPrincipal menu = new MenuPrincipal();
+        menu.setVisible(true);
     }
-    
+
 }
