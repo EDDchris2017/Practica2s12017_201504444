@@ -5,6 +5,9 @@
  */
 package Form;
 
+import Estructuras.EsCola;
+import Estructuras.EsLista;
+import Estructuras.Lista;
 import javax.swing.JOptionPane;
 
 /**
@@ -19,7 +22,8 @@ public class FormCola extends javax.swing.JFrame {
     public FormCola() {
         initComponents();
     }
-
+    Lista lista = new Lista();
+String dato = "";
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -33,10 +37,17 @@ public class FormCola extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         ColaText.setFont(new java.awt.Font("Consolas", 2, 18)); // NOI18N
+        ColaText.setName("textbox"); // NOI18N
+        ColaText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ColaTextActionPerformed(evt);
+            }
+        });
 
         jButton1.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
         jButton1.setText("QUEUE");
@@ -56,6 +67,13 @@ public class FormCola extends javax.swing.JFrame {
             }
         });
 
+        jButton4.setText("jButton4");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -69,7 +87,9 @@ public class FormCola extends javax.swing.JFrame {
                         .addGap(125, 125, 125)
                         .addComponent(jButton1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(116, 116, 116)
+                        .addGap(25, 25, 25)
+                        .addComponent(jButton4)
+                        .addGap(18, 18, 18)
                         .addComponent(jButton2)))
                 .addContainerGap(65, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -84,7 +104,9 @@ public class FormCola extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton2)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton2)
+                    .addComponent(jButton4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton3))
         );
@@ -94,26 +116,37 @@ public class FormCola extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-       
         
+        dato = ColaText.getText();
+        JOptionPane.showMessageDialog(null, dato);
+        lista.agregarAlInicio(dato);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-         MenuPrincipal menu = new MenuPrincipal();
+        MenuPrincipal menu = new MenuPrincipal();
         menu.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        lista.mostrarLista();
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void ColaTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ColaTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ColaTextActionPerformed
+
     /**
      * @param args the command line arguments
      */
-   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField ColaText;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     // End of variables declaration//GEN-END:variables
 }

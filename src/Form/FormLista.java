@@ -5,6 +5,7 @@
  */
 package Form;
 
+import Estructuras.Lista;
 import javax.swing.JOptionPane;
 
 /**
@@ -18,7 +19,9 @@ public class FormLista extends javax.swing.JFrame {
      */
     public FormLista() {
         initComponents();
-            }
+    }
+    Lista lista = new Lista();
+    String valor = "";
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -43,19 +46,44 @@ public class FormLista extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jTextField1.setFont(new java.awt.Font("Consolas", 2, 14)); // NOI18N
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
 
         jButton1.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
         jButton1.setText("AGREGAR");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jTextField2.setFont(new java.awt.Font("Consolas", 2, 14)); // NOI18N
+        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
         jButton3.setText("BORRAR");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jTextField3.setFont(new java.awt.Font("Consolas", 2, 14)); // NOI18N
 
         jButton4.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
         jButton4.setText("BUSCAR");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jButton5.setText("-->");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -114,15 +142,48 @@ public class FormLista extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-         MenuPrincipal menu = new MenuPrincipal();
+        MenuPrincipal menu = new MenuPrincipal();
         menu.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton5ActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        valor = jTextField1.getText();
+        lista.agregarAlFinal(valor);
+        lista.mostrarLista();
+        jTextField1.setText("");
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        valor = jTextField2.getText();
+        lista.eliminar(valor);
+        lista.mostrarLista();
+        jTextField2.setText("");
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        String otro = "";
+        valor = jTextField2.getText();
+        lista.estaEnLaLista(valor);
+        jTextField3.setText("");
+        JOptionPane.showMessageDialog(null, lista.estaEnLaLista(valor));
+    }//GEN-LAST:event_jButton4ActionPerformed
+
     /**
      * @param args the command line arguments
      */
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

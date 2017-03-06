@@ -5,6 +5,7 @@
  */
 package Form;
 
+import Estructuras.Lista;
 import javax.swing.JOptionPane;
 
 /**
@@ -19,7 +20,7 @@ public class FormMatriz extends javax.swing.JFrame {
     public FormMatriz() {
         initComponents();
     }
-
+Lista lista = new Lista();
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -45,6 +46,11 @@ public class FormMatriz extends javax.swing.JFrame {
 
         jButton1.setFont(new java.awt.Font("Arial", 2, 12)); // NOI18N
         jButton1.setText("AGREGAR");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jTextField2.setFont(new java.awt.Font("Consolas", 2, 18)); // NOI18N
 
@@ -131,6 +137,10 @@ public class FormMatriz extends javax.swing.JFrame {
         menu.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
